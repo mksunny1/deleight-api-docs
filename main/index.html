@@ -34,11 +34,13 @@
 <li>apply components to elements by specifying them with attributes (<a>process</a>).</li>
 </ul>
 <p>Many standard components have been included for creating event handlers, setting attributes and setting and assigning properties (components).</p>
-<a id="md:function" class="tsd-anchor"></a><h3><a href="#md:function"><a href="https://mksunny1.github.io/deleight-api-docs/main/modules/deleight.function.html">function</a></a></h3><p>Currently exports 2 primitives:</p>
+<a id="md:function" class="tsd-anchor"></a><h3><a href="#md:function"><a href="https://mksunny1.github.io/deleight-api-docs/main/modules/deleight.function.html">function</a></a></h3><p>Currently exports 3 primitives:</p>
 <ol>
 <li><p>A <code>Return</code> function which creates an object that represents the return value of calling a function. Accessing members will first call the wrapped function to get the object which will be accessed instead.</p>
 </li>
 <li><p>A <code>setContext</code> function which wraps a function with another one to include the given <code>context</code> object in its scope. <code>setContext</code> can be called on multiple functions to effectively make them run mutually exclusively. This can be useful, for example, in event handlers that create network requests so they do not unnecessarily repeat the requests.</p>
+</li>
+<li><p><code>cache</code> to wrap a function to cache and return the first result. <code>cache#reset</code> method can be used for reset.</p>
 </li>
 </ol>
 <a id="md:generators" class="tsd-anchor"></a><h3><a href="#md:generators"><a href="https://mksunny1.github.io/deleight-api-docs/main/modules/deleight.Generator.html">generators</a></a></h3><p>Many powerful generators to minimize computations and memory use. Some are seen in the usage example.</p>
