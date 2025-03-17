@@ -22,54 +22,113 @@ You can explore how it compares to other frameworks and the detailed benchmarks 
 <a id="md:comparison-with-other-frameworks" class="tsd-anchor"></a><h2><a href="#md:comparison-with-other-frameworks">Comparison with Other Frameworks</a></h2><table>
 <thead>
 <tr>
-<th>Feature</th>
+<th>Feature/Framework</th>
 <th><strong>Deleight</strong></th>
 <th><strong>React</strong></th>
-<th><strong>Vue</strong></th>
+<th><strong>Vue.js</strong></th>
+<th><strong>Solid</strong></th>
+<th><strong>Angular</strong></th>
 <th><strong>Svelte</strong></th>
 </tr>
 </thead>
 <tbody><tr>
 <td><strong>Reactivity</strong></td>
-<td>Uses explicit state management with <code>sets</code>, <code>calls</code>, and <code>dels</code>.</td>
+<td>Fine-grained reactivity, no virtual DOM, direct DOM manipulation.</td>
 <td>Virtual DOM with diffing algorithm.</td>
-<td>Virtual DOM with reactive data binding.</td>
-<td>Compiled into imperative code with reactive assignments.</td>
-</tr>
-<tr>
-<td><strong>Syntax</strong></td>
-<td>Direct JavaScript syntax, no magic.</td>
-<td>JSX and hooks.</td>
-<td>Template syntax with reactive data.</td>
-<td>Special syntax that compiles into JavaScript.</td>
-</tr>
-<tr>
-<td><strong>State Management</strong></td>
-<td>Uses regular JavaScript objects, no need for a store.</td>
-<td>Uses <code>useState</code> and <code>useReducer</code> for state management.</td>
-<td>Uses reactive variables and Vuex for global state.</td>
-<td>Built-in reactivity with store support.</td>
+<td>Virtual DOM with reactivity system (proxy-based).</td>
+<td>Fine-grained reactivity, no virtual DOM.</td>
+<td>Two-way data binding with zones and change detection.</td>
+<td>Compiler-driven reactivity with no virtual DOM.</td>
 </tr>
 <tr>
 <td><strong>Performance</strong></td>
-<td>High performance with fine-grained reactivity.</td>
-<td>Virtual DOM diffing can be slower for large updates.</td>
-<td>Virtual DOM diffing, faster than React but slower than Deleight.</td>
-<td>Compiled code leads to fast, direct DOM manipulation.</td>
+<td>Extremely fast, outperforms most frameworks in benchmarks (Krausest).</td>
+<td>Fast, but can be slower due to virtual DOM and diffing.</td>
+<td>Similar to React but optimized in some cases, faster reactivity system.</td>
+<td>Extremely fast, optimized for large-scale apps.</td>
+<td>Slower due to extensive change detection cycles and zones.</td>
+<td>Very fast due to compile-time optimizations.</td>
 </tr>
 <tr>
-<td><strong>Learning Curve</strong></td>
-<td>Easy to learn and use for JavaScript developers.</td>
-<td>Steep learning curve with JSX and hooks.</td>
-<td>Moderate learning curve with templates and directives.</td>
-<td>Low learning curve for those familiar with JavaScript.</td>
+<td><strong>Memory Efficiency</strong></td>
+<td>More memory-efficient due to no virtual DOM, minimal overhead, and the <strong>generators module</strong> for handling large datasets.</td>
+<td>Higher memory usage due to virtual DOM and diffing.</td>
+<td>Moderate memory usage, virtual DOM and reactive system, optimized for smaller apps.</td>
+<td>Very efficient, but still slightly higher than Deleight due to reactivity systems.</td>
+<td>Higher memory usage due to extensive use of change detection and zones.</td>
+<td>Very memory-efficient due to compile-time optimizations.</td>
 </tr>
 <tr>
-<td><strong>Ecosystem</strong></td>
-<td>Small ecosystem but rapidly growing.</td>
-<td>Large and mature ecosystem with extensive tooling.</td>
-<td>Mature ecosystem with strong support for both small and large applications.</td>
-<td>Smaller ecosystem, but growing rapidly in the frontend space.</td>
+<td><strong>Ease of Learning</strong></td>
+<td>Easier to learn compared to others, uses plain JavaScript/TypeScript objects with no &quot;magic&quot;.</td>
+<td>Easy to learn, many tutorials and resources available.</td>
+<td>Easy to learn, similar to React, but slightly more declarative.</td>
+<td>Steep learning curve, but very powerful for large apps.</td>
+<td>Steep learning curve, more complex due to its full framework nature.</td>
+<td>Simple syntax, but not true JavaScript/TypeScript. Requires unique tooling and concepts, which can be unintuitive for pure JS/TS developers.</td>
+</tr>
+<tr>
+<td><strong>Development Speed</strong></td>
+<td>Fast for both small and large projects, no special tooling required.</td>
+<td>Fast with a large ecosystem of libraries and tools.</td>
+<td>Fast with many built-in features and Vue CLI tools.</td>
+<td>Fast for developers familiar with reactive paradigms.</td>
+<td>Slow, as it comes with a lot of boilerplate and setup.</td>
+<td>Fast, no build step or special tooling required, everything is compiled.</td>
+</tr>
+<tr>
+<td><strong>Community Support</strong></td>
+<td>Growing but small community.</td>
+<td>Large and active community with lots of resources.</td>
+<td>Large and growing community.</td>
+<td>Smaller community, but very passionate and growing.</td>
+<td>Huge community with extensive resources, but can be opinionated.</td>
+<td>Growing, but smaller than React/Vue.</td>
+</tr>
+<tr>
+<td><strong>Use Case</strong></td>
+<td>Ideal for both small and large projects, very high performance, memory-efficient with <strong>generators module</strong> for large datasets.</td>
+<td>Best for large-scale applications with heavy user interaction.</td>
+<td>Great for both small and large-scale projects, reactive systems.</td>
+<td>Best for large-scale applications with complex UI updates.</td>
+<td>Best for enterprise-level applications with complex architectures.</td>
+<td>Best for projects with simple-to-moderate complexity, or those needing minimal overhead.</td>
+</tr>
+<tr>
+<td><strong>Flexibility</strong></td>
+<td>Extremely flexible, gives you full control over implementation, can be used for any kind of project.</td>
+<td>High flexibility, but requires React-specific paradigms and tooling.</td>
+<td>Flexible but has a more opinionated structure compared to React.</td>
+<td>Highly flexible, offers low-level control with fine-grained reactivity.</td>
+<td>Less flexible due to its strict opinions on how things should be done.</td>
+<td>Limited flexibility compared to others due to its compile-time nature.</td>
+</tr>
+<tr>
+<td><strong>Modularity</strong></td>
+<td>Very modular, components can be composed easily, and you can build custom solutions easily.</td>
+<td>Modular, but often needs external libraries and patterns for more complex use cases.</td>
+<td>Modular with good support for state management (Vuex) and component structure.</td>
+<td>Highly modular, built around fine-grained reactivity but can become complex.</td>
+<td>Less modular due to the monolithic nature of the framework.</td>
+<td>Modular, but the framework is designed to be minimal and lean.</td>
+</tr>
+<tr>
+<td><strong>Tools/Extensions</strong></td>
+<td>No special tooling required, just JavaScript/TypeScript.</td>
+<td>Huge ecosystem, extensive tools and extensions available.</td>
+<td>Strong ecosystem, Vuex for state management.</td>
+<td>Smaller ecosystem, but fast-growing.</td>
+<td>Very extensive, with tools like Angular CLI, RxJS, etc.</td>
+<td>Unique tooling required, but the ecosystem is growing.</td>
+</tr>
+<tr>
+<td><strong>Compatibility</strong></td>
+<td>Works with anything, supports commonJS imports, can work via jsdelivr, fully compatible with modern JS/TS ecosystems.</td>
+<td>Works well with most modern browsers and toolchains.</td>
+<td>Works with modern browsers and toolchains.</td>
+<td>Compatible with modern browsers and libraries.</td>
+<td>Full support for modern browsers, integrates well with TypeScript and other tools.</td>
+<td>Works with modern browsers but requires unique tooling that deviates from standard JS/TS workflows.</td>
 </tr>
 </tbody></table>
 <a id="md:installation" class="tsd-anchor"></a><h2><a href="#md:installation">Installation</a></h2><p>Install Deleight via NPM:</p>
